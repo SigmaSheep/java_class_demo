@@ -7,8 +7,12 @@ public class MyApp {
 
 	public static void main(String[] args) {
 		
+		// get instance from configuration
 		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(MyAppConfig.class);
-				
+		// get filed from property 
+		String carrier = context.getBean("carrierProperty", String.class);
+		System.out.println("The injected carrier is: " + carrier);
+		
 		// TODO Auto-generated method stub
 		PhoneInterface iphoneX = context.getBean("iphoneX",PhoneInterface.class);
 		System.out.println(iphoneX.getBuzz());
